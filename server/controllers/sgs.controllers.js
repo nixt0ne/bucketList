@@ -2,6 +2,8 @@ const sgsSelector= require('../models/sgs.model')
 const jwt = require('jsonwebtoken')
 const SECRET= process.env.SECRET_KEY
 
+
+
 module.exports = {
     getSGS:(req,res)=>{
         const {_id} = jwt.verify(req.cookies.userToken, SECRET)
