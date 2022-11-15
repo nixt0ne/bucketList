@@ -17,8 +17,8 @@ app.use(
     }),
 );
 
-require('./routes/sgs.routes')(app)
-require('./routes/user.routes')(app)
+require('./routes/bl.routes')(app)
+// require('./routes/user.routes')(app)
 
 app.listen(PORT, ()=>{
     console.log('Server is up and running')

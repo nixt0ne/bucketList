@@ -1,12 +1,12 @@
 const mongoose = require('mongoose')
 
-mongoose.connect('mongodb://localhost/snowboardGearSelector', {
+mongoose.connect('mongodb://localhost/bucketlist', {
     useNewUrlParser:true,
     useUnifiedTopology:true
 })
 
 .then(()=>{
-    console.log("Connected to Snowboard Gear Selector DB")
+    console.log("Connected to Bucketlist DB")
 })
 .catch((err)=>{
     console.log(err)
