@@ -25,30 +25,29 @@ const ItemList = () => {
     const navigate = useNavigate()
 
     // This is user login/reg
-    // const [username, setUserName] = useState('')
-    // const [profile, setProfile] = useState('')
-    // const [backImg, setBackImg] = useState('')
-    // const {id} = useParams()
+    const [username, setUserName] = useState('')
+    const [profile, setProfile] = useState('')
+    const [backImg, setBackImg] = useState('')
+    const {id} = useParams()
 
 
     // This is user login/reg
-    // useEffect(()=>{
-    //     axios.get(`http://localhost:8000/api/getLoggedUser`,{withCredentials:true})
-    //     .then((res)=>{
-    //         console.log("res.data", res)
-    //         setProfile(res.data.profile)
-    //         setBackImg(res.data.backImg)
-    //         // setPassword(res.data.password)
-    //         // setId(res.data._id)
-    //         // setFootSize(res.data.footSize)
+    useEffect(()=>{
+        axios.get(`http://localhost:8000/api/getLoggedUser`,{withCredentials:true})
+        .then((res)=>{
+            console.log("res.data", res)
+            setProfile(res.data.profile)
+            setBackImg(res.data.backImg)
+            // setPassword(res.data.password)
+            // setId(res.data._id)
+            // setFootSize(res.data.footSize)
     
     
-    //     })
-    //     .catch((err)=>{
-    //         console.log(err)
-    //         // setNoId('Pets not found using that ID')
-    //     })
-    // },[])
+        })
+        .catch((err)=>{
+            console.log(err)
+        })
+    },[])
 
 
     useEffect(()=>{
@@ -85,12 +84,12 @@ const ItemList = () => {
             <div className="tests" style={{backgroundImage: `url("https://thumbs.dreamstime.com/z/s-pattern-seamless-abstract-geometric-fashion-can-be-used-printing-website-background-fabric-design-62143338.jpg")`, height: "1000px"}}>
                     
                     {/* If we want to have a user profile image and user background image */}
-                    {/* <div style={{backgroundColor: 'white'}} className='' >
+                    <div style={{backgroundColor: 'white'}} className='' >
                         <div className='p-5 justify-contents-center' style={{backgroundImage: `url(${backImg})`, backgroundRepeat: "no-repeat", backgroundSize: "cover", backgroundPosition: "center"}}>
                         <Link to={'/editProfilePage'}><img className='border border-5 border-light' src={profile} style={{width: 200, height: 200, borderRadius: '50%'}}/></Link>
                         </div>
                     </div>
-                    <div className=' d-flex mx-auto justify-content-evenly align-items-center' style={{backgroundColor: 'lightgrey'}}>
+                    {/* <div className=' d-flex mx-auto justify-content-evenly align-items-center' style={{backgroundColor: 'lightgrey'}}>
                         <div>
                             <Link to={'/snowboardGearSelector'} style={{textDecoration: 'none'}}><Button type="button" className = "m-3 col" variant="contained" endIcon={<RocketLaunchIcon/>}>Click to get your custom fit here!</Button></Link>
                         </div>
