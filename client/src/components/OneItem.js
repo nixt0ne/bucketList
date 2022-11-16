@@ -1,53 +1,58 @@
 import React, {useEffect,useState} from 'react'
 import axios from 'axios'
 import { useParams, useNavigate, Link } from 'react-router-dom'
-import SgsForm from './SgsForm'
+import ItemForm from './ItemForm'
+// import SgsForm from './SgsForm'
 import Board from '../Images/Board.png'
 import Binding from '../Images/Binding.png'
 import Boot from '../Images/Boot.png'
 import Height from '../Images/Height.png'
-import NavBar from './NavBar'
+// import NavBar from './NavBar'
 import Button from '@mui/material/Button';
 import RocketLaunchIcon from '@mui/icons-material/RocketLaunch';
 
-const OneSgs = () => {
+const OneItem = () => {
     const {id} = useParams()
     const navigate = useNavigate()
-    const [username, setUserName] = useState('')
-    const [apiState, setApiState] = useState ([])
 
-    const [sgs,setSGS] = useState({})
+    // This is user profile stuff
+    // const [username, setUserName] = useState('')
+    // const [apiState, setApiState] = useState ([])
+
+    const [item,setItem] = useState({})
 
 useEffect(()=>{
-    axios.get(`http://localhost:8000/api/oneSGS/${id}`, {withCredentials:true})
+    axios.get(`http://localhost:8000/api/oneItem/${id}`, {withCredentials:true})
     .then((res)=>{
-        setSGS(res.data)
+        setItem(res.data)
     })
     .catch((err)=>{
         console.log(err)
     })
 },[])
 
-useEffect(()=>{
-    axios.get(`http://localhost:8000/api/getLoggedUser`,{withCredentials:true})
-    .then((res)=>{
-        console.log("res.data", res)
-        setUserName(res.data.username)
-        // setPassword(res.data.password)
-        // setId(res.data._id)
-        // setFootSize(res.data.footSize)
+
+// this is for user stuff
+// useEffect(()=>{
+//     axios.get(`http://localhost:8000/api/getLoggedUser`,{withCredentials:true})
+//     .then((res)=>{
+//         console.log("res.data", res)
+//         setUserName(res.data.username)
+//         // setPassword(res.data.password)
+//         // setId(res.data._id)
+//         // setFootSize(res.data.footSize)
 
 
-    })
-    .catch((err)=>{
-        console.log(err)
-        // setNoId('Pets not found using that ID')
-    })
-},[])
+//     })
+//     .catch((err)=>{
+//         console.log(err)
+//         // setNoId('Pets not found using that ID')
+//     })
+// },[])
 
 
 const deleteHandler = (id) => {
-    axios.delete(`http://localhost:8000/api/deleteSGS/${id}`,{withCredentials:true})
+    axios.delete(`http://localhost:8000/api/deleteItem/${id}`,{withCredentials:true})
     .then((res)=>{
         console.log('Deleted from db')
         navigate('/homeProfile')
@@ -79,14 +84,14 @@ const deleteHandler = (id) => {
                     <div className="mt-3 rounded-top overflow-hidden" style={{backgroundColor: 'black', }} >
                         <div className="d-flex row mt-3" >
                             <div className='col-7'>
-                                <h1 style={{color: 'white'}}>{username}, check out your CUSTOM RESULTS!</h1>
+                                <h1 style={{color: 'white'}}>User, check out your CUSTOM RESULTS!</h1>
                             </div>
                             <div className='col-5 text-end d-flex'>
                                 <div className=''>
-                                    <Link to={`/sgs/${sgs._id}/edit`} style={{textDecoration: 'none'}}><Button type="button" className = "m-3 col" variant="contained" endIcon={<RocketLaunchIcon/>}>Edit Selection</Button></Link>
+                                    <Link to={`/oneItem/${item._id}/edit`} style={{textDecoration: 'none'}}><Button type="button" className = "m-3 col" variant="contained" endIcon={<RocketLaunchIcon/>}>Edit Selection</Button></Link>
                                 </div>
                                 <div>
-                                    <Button onClick={(e)=>deleteHandler(sgs._id)} color="error" type="button" className = "m-3 col" variant="contained" endIcon={<RocketLaunchIcon/>}>Delete</Button>
+                                    <Button onClick={(e)=>deleteHandler(item._id)} color="error" type="button" className = "m-3 col" variant="contained" endIcon={<RocketLaunchIcon/>}>Delete</Button>
                                     {/* <button className='btn btn-danger border border-dark border-3'><Link to={`/sgs/${sgs._id}/edit`}> edit</Link></button>
                                     <button className='btn btn-danger border border-dark border-3' onClick={(e)=>deleteHandler(sgs._id)}>Delete Style</button> */}
                                 </div>
@@ -100,7 +105,7 @@ const deleteHandler = (id) => {
                                                 </div>
                                                 <div className='col mx-auto'>
                                                     <h1 className="mb-4" style= {{fontWeight: "bold"}}>Snowboard Style:</h1>
-                                                    <h4 className="mb-4"> {sgs.boardStyle} </h4>
+                                                    <h4 className="mb-4"> {item.name} </h4>
                                                 </div>
                                             </div>
                                         </div>
@@ -111,7 +116,7 @@ const deleteHandler = (id) => {
                                                 </div>
                                                 <div className='col mx-auto'>
                                                     <h1 className="mb-4" style= {{fontWeight: "bold"}}>Snowboard Height:</h1>
-                                                    <h4 className="mb-4"> {sgs.boardHeight} ft</h4>
+                                                    <h4 className="mb-4"> {item.activity} ft</h4>
                                                 </div>
                                             </div>
                                         </div>
@@ -129,7 +134,7 @@ const deleteHandler = (id) => {
                                                 </div>
                                                 <div className='col mx-auto'>
                                                     <h1 className="mb-4" style= {{fontWeight: "bold"}}>Boot Style:</h1>
-                                                    <h4 className="mb-4"> {sgs.bootStyle} </h4>
+                                                    <h4 className="mb-4"> {item.description} </h4>
                                                 </div>
                                             </div>
                                         </div>
@@ -145,7 +150,7 @@ const deleteHandler = (id) => {
                                                 </div>
                                                 <div className='col mx-auto'>
                                                     <h1 className="mb-4" style= {{fontWeight: "bold"}}>Binding Style:</h1>
-                                                    <h4 className="mb-4"> {sgs.bindingStyle} </h4>
+                                                    <h4 className="mb-4"> {item.date} </h4>
                                                 </div>
                                             </div>
                                         </div>
@@ -155,10 +160,10 @@ const deleteHandler = (id) => {
                                                 <h4 className="mb-4"> {sgs.bindingStyle} </h4>
 
                                         </div> */}
-                                                            <div className='text-center' style={{backgroundColor: 'white', }}>
-                        <Link to={`/riderForum`} style={{textDecoration: 'none'}}><Button type="button" className = "m-3 col" variant="contained" endIcon={<RocketLaunchIcon/>}>Check Out the Rider Forum To See Other Riders' Results!</Button></Link>
-                        {/* <button className='btn btn-danger border border-dark border-3'><Link to={'/riderForum'}> Check Out the Rider Forum To See Other Rider Results!</Link></button> */}
-                    </div>
+                                        {/* <div className='text-center' style={{backgroundColor: 'white', }}>
+                                            <Link to={`/riderForum`} style={{textDecoration: 'none'}}><Button type="button" className = "m-3 col" variant="contained" endIcon={<RocketLaunchIcon/>}>Check Out the Rider Forum To See Other Riders' Results!</Button></Link> */}
+                                        {/* <button className='btn btn-danger border border-dark border-3'><Link to={'/riderForum'}> Check Out the Rider Forum To See Other Rider Results!</Link></button> */}
+                                        {/* </div> */}
                                     </div>
                         {/* <div className="col-4 mt-2">
                             <p className="mb-4">{sgs.style}</p>
@@ -207,4 +212,4 @@ const deleteHandler = (id) => {
     )
 }
 
-export default OneSgs;
+export default OneItem;
