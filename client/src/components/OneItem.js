@@ -62,20 +62,10 @@ const deleteHandler = (id) => {
     })
 }
 
-// useEffect(()=> {
-//     axios.get ('https://www.breakingbadapi.com/api/characters/1')
-//     .then ((res)=>{
-//     console.log("snow api data" + res)
-//     setApiState(res.data.results)
-//     })
-//     .catch((error)=>{
-//     })
-// },[])
-
 
     return (
         <div style={{backgroundImage: `url("https://thumbs.dreamstime.com/z/trendy-memphis-style-seamless-pattern-inspired-s-s-retro-fashion-design-colorful-festive-hipster-background-abstract-doodle-85336089.jpg")`,backgroundRepeat: "no-repeat", backgroundSize: "cover", backgroundPosition: "center", height:"635px"}}>
-        {/* <NavBar/> */}
+
 
             <div className="col-8 mx-auto text-start"  >
 
@@ -92,8 +82,6 @@ const deleteHandler = (id) => {
                                 </div>
                                 <div>
                                     <Button onClick={(e)=>deleteHandler(item._id)} color="error" type="button" className = "m-3 col" variant="contained" endIcon={<RocketLaunchIcon/>}>Delete</Button>
-                                    {/* <button className='btn btn-danger border border-dark border-3'><Link to={`/sgs/${sgs._id}/edit`}> edit</Link></button>
-                                    <button className='btn btn-danger border border-dark border-3' onClick={(e)=>deleteHandler(sgs._id)}>Delete Style</button> */}
                                 </div>
                             </div>
                         </div>

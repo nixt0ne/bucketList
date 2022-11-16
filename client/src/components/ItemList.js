@@ -20,14 +20,18 @@ import AcUnitIcon from '@mui/icons-material/AcUnit';
 
 
 const ItemList = () => {
-    // const [username, setUserName] = useState('')
+
     const [list,setList] = useState([])
+    const navigate = useNavigate()
+
+    // This is user login/reg
+    // const [username, setUserName] = useState('')
     // const [profile, setProfile] = useState('')
     // const [backImg, setBackImg] = useState('')
     // const {id} = useParams()
-    const navigate = useNavigate()
 
-// User Info
+
+    // This is user login/reg
     // useEffect(()=>{
     //     axios.get(`http://localhost:8000/api/getLoggedUser`,{withCredentials:true})
     //     .then((res)=>{
@@ -79,6 +83,8 @@ const ItemList = () => {
 
     return(
             <div className="tests" style={{backgroundImage: `url("https://thumbs.dreamstime.com/z/s-pattern-seamless-abstract-geometric-fashion-can-be-used-printing-website-background-fabric-design-62143338.jpg")`, height: "1000px"}}>
+                    
+                    {/* If we want to have a user profile image and user background image */}
                     {/* <div style={{backgroundColor: 'white'}} className='' >
                         <div className='p-5 justify-contents-center' style={{backgroundImage: `url(${backImg})`, backgroundRepeat: "no-repeat", backgroundSize: "cover", backgroundPosition: "center"}}>
                         <Link to={'/editProfilePage'}><img className='border border-5 border-light' src={profile} style={{width: 200, height: 200, borderRadius: '50%'}}/></Link>
@@ -95,9 +101,11 @@ const ItemList = () => {
                             <Link to={'/riderForum'}><Button type="button" className = "m-3 col" variant="contained" endIcon={<GroupsIcon />}>Check out other riders on the forum</Button></Link>
                         </div>
                     </div> */}
+
+
                 <div className="col-8 mx-auto mt-3">
                         <div className="rounded-top overflow-hidden" style={{color: 'white', backgroundColor: '#0d6efd'}}>
-                            <h1>Your Ride Styles:</h1>
+                            <h1>Bucket List</h1>
                         </div>
                 </div>
                 <div className="col-8 mx-auto text-start">
@@ -105,16 +113,10 @@ const ItemList = () => {
                         <table className=" table table-striped table-hover  ">
                             <thead className='border-top border-dark'>
                                 <tr className="table-primary">
-                                    {/* <th>Name</th> */}
                                     <th>Name</th>
                                     <th>Activity</th>
-                                    {/* <th>Foot Size</th> */}
                                     <th>Description</th>
                                     <th>Date</th>
-                                    {/* <th>Boot Type</th>
-                                    <th>Binding Type</th>
-                                    <th>Date Created</th>
-                                    <th>Created By</th> */}
                                     <th>Actions</th>
                                 </tr>
                             </thead>
@@ -125,19 +127,13 @@ const ItemList = () => {
                             list.map((bList, index)=>{
                                 return(
                                     <tr key={index} className=" ">
-                                            {/* <td className="col-1">{sgsSelector.username}</td> */}
-                                            {/* <td className="col-1"><Link to= {`/sgs/${bList._id}`}>{bList.style}</Link></td> */}
-                                            <td className="col-1"><Link to= {`/oneItem/${bList._id}`}>{bList.name}</Link></td>
+                                             <td className="col-1"><Link to= {`/oneItem/${bList._id}`}>{bList.name}</Link></td>
                                             <td className="col-1">{bList.activity}</td>
                                             <td className="col-1">{bList.description}</td>
                                             <td className="col-1">{bList.date}</td>
-                                            {/* <td className="col-1">{sgsSelector.bindingStyle}</td>
-                                            <td className="col-1">{sgsSelector.updatedAt}</td>
-                                            <td className="col-1">{sgsSelector?.createdBy?.username}</td> */}
                                             <td className="col-1">
-                                            <Button type="button" className = "mt-3 col m-3" variant="outlined" endIcon={<DeleteOutlineIcon />} onClick={(e)=>deleteHandler(bList._id)}><Link to={'/homeProfile'}>Remove</Link></Button>
-
-                                                {/* <button className='btn btngrad btn-danger btn-sm m-3' onClick={(e)=>deleteHandler(sgsSelector._id)}>Remove</button> */}
+                                                <Button type="button" className = "mt-3 col m-3" variant="outlined" endIcon={<DeleteOutlineIcon />} onClick={(e)=>deleteHandler(bList._id)}><Link to={'/homeProfile'}>Remove</Link></Button>
+                                                <button className='btn btn-danger border border-dark border-3'><Link to={`/oneitem/${bList._id}/edit`}>edit</Link></button>
                                             </td>
                                     </tr>
                                     )
