@@ -3,7 +3,7 @@ import axios from 'axios';
 import { Link } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom'
 import { useParams } from 'react-router-dom'
-import NavBar from './NavBar';
+// import NavBar from './NavBar';
 import Button from '@mui/material/Button';
 import LandscapeIcon from '@mui/icons-material/Landscape';
 import Table from '@mui/material/Table';
@@ -19,32 +19,32 @@ import RocketLaunchIcon from '@mui/icons-material/RocketLaunch';
 import AcUnitIcon from '@mui/icons-material/AcUnit';
 
 
-const SgsList = () => {
+const ItemList = () => {
     // const [username, setUserName] = useState('')
     const [list,setList] = useState([])
-    const [profile, setProfile] = useState('')
-    const [backImg, setBackImg] = useState('')
+    // const [profile, setProfile] = useState('')
+    // const [backImg, setBackImg] = useState('')
     // const {id} = useParams()
     const navigate = useNavigate()
 
-
-    useEffect(()=>{
-        axios.get(`http://localhost:8000/api/getLoggedUser`,{withCredentials:true})
-        .then((res)=>{
-            console.log("res.data", res)
-            setProfile(res.data.profile)
-            setBackImg(res.data.backImg)
-            // setPassword(res.data.password)
-            // setId(res.data._id)
-            // setFootSize(res.data.footSize)
+// User Info
+    // useEffect(()=>{
+    //     axios.get(`http://localhost:8000/api/getLoggedUser`,{withCredentials:true})
+    //     .then((res)=>{
+    //         console.log("res.data", res)
+    //         setProfile(res.data.profile)
+    //         setBackImg(res.data.backImg)
+    //         // setPassword(res.data.password)
+    //         // setId(res.data._id)
+    //         // setFootSize(res.data.footSize)
     
     
-        })
-        .catch((err)=>{
-            console.log(err)
-            // setNoId('Pets not found using that ID')
-        })
-    },[])
+    //     })
+    //     .catch((err)=>{
+    //         console.log(err)
+    //         // setNoId('Pets not found using that ID')
+    //     })
+    // },[])
 
 
     useEffect(()=>{
@@ -60,12 +60,12 @@ const SgsList = () => {
 
     const removeFromList= (id) => {
         console.log(list)
-        setList(list.filter(sgsSelector=>sgsSelector._id !== id))
+        setList(list.filter(bList=>bList._id !== id))
 
     }
 
     const deleteHandler = (id) => {
-        axios.delete(`http://localhost:8000/api/deleteSGS/${id}`,{withCredentials:true})
+        axios.delete(`http://localhost:8000/api/deleteItem/${id}`,{withCredentials:true})
         .then((res)=>{
             console.log(id)
             removeFromList(id)
@@ -79,7 +79,7 @@ const SgsList = () => {
 
     return(
             <div className="tests" style={{backgroundImage: `url("https://thumbs.dreamstime.com/z/s-pattern-seamless-abstract-geometric-fashion-can-be-used-printing-website-background-fabric-design-62143338.jpg")`, height: "1000px"}}>
-                    <div style={{backgroundColor: 'white'}} className='' >
+                    {/* <div style={{backgroundColor: 'white'}} className='' >
                         <div className='p-5 justify-contents-center' style={{backgroundImage: `url(${backImg})`, backgroundRepeat: "no-repeat", backgroundSize: "cover", backgroundPosition: "center"}}>
                         <Link to={'/editProfilePage'}><img className='border border-5 border-light' src={profile} style={{width: 200, height: 200, borderRadius: '50%'}}/></Link>
                         </div>
@@ -94,7 +94,7 @@ const SgsList = () => {
                         <div>
                             <Link to={'/riderForum'}><Button type="button" className = "m-3 col" variant="contained" endIcon={<GroupsIcon />}>Check out other riders on the forum</Button></Link>
                         </div>
-                    </div>
+                    </div> */}
                 <div className="col-8 mx-auto mt-3">
                         <div className="rounded-top overflow-hidden" style={{color: 'white', backgroundColor: '#0d6efd'}}>
                             <h1>Your Ride Styles:</h1>
@@ -106,15 +106,15 @@ const SgsList = () => {
                             <thead className='border-top border-dark'>
                                 <tr className="table-primary">
                                     {/* <th>Name</th> */}
-                                    <th>Style</th>
-                                    <th>Height</th>
+                                    <th>Name</th>
+                                    <th>Activity</th>
                                     {/* <th>Foot Size</th> */}
-                                    <th>Board Style</th>
-                                    <th>Board Size</th>
-                                    <th>Boot Type</th>
+                                    <th>Description</th>
+                                    <th>Date</th>
+                                    {/* <th>Boot Type</th>
                                     <th>Binding Type</th>
                                     <th>Date Created</th>
-                                    <th>Created By</th>
+                                    <th>Created By</th> */}
                                     <th>Actions</th>
                                 </tr>
                             </thead>
@@ -122,20 +122,20 @@ const SgsList = () => {
 
                             {
 
-                            list.map((sgsSelector, index)=>{
+                            list.map((bList, index)=>{
                                 return(
                                     <tr key={index} className=" ">
                                             {/* <td className="col-1">{sgsSelector.username}</td> */}
-                                            <td className="col-1"><Link to= {`/sgs/${sgsSelector._id}`}>{sgsSelector.style}</Link></td>
-                                            <td className="col-1">{sgsSelector.height}</td>
-                                            <td className="col-1">{sgsSelector.boardStyle}</td>
-                                            <td className="col-1">{sgsSelector.boardHeight}</td>
-                                            <td className="col-1">{sgsSelector.bootStyle}</td>
-                                            <td className="col-1">{sgsSelector.bindingStyle}</td>
+                                            {/* <td className="col-1"><Link to= {`/sgs/${bList._id}`}>{bList.style}</Link></td> */}
+                                            <td className="col-1"><Link to= {`/oneItem/${bList._id}`}>{bList.name}</Link></td>
+                                            <td className="col-1">{bList.activity}</td>
+                                            <td className="col-1">{bList.description}</td>
+                                            <td className="col-1">{bList.date}</td>
+                                            {/* <td className="col-1">{sgsSelector.bindingStyle}</td>
                                             <td className="col-1">{sgsSelector.updatedAt}</td>
-                                            <td className="col-1">{sgsSelector?.createdBy?.username}</td>
+                                            <td className="col-1">{sgsSelector?.createdBy?.username}</td> */}
                                             <td className="col-1">
-                                            <Button type="button" className = "mt-3 col m-3" variant="outlined" endIcon={<DeleteOutlineIcon />} onClick={(e)=>deleteHandler(sgsSelector._id)}><Link to={'/homeProfile'}>Remove</Link></Button>
+                                            <Button type="button" className = "mt-3 col m-3" variant="outlined" endIcon={<DeleteOutlineIcon />} onClick={(e)=>deleteHandler(bList._id)}><Link to={'/homeProfile'}>Remove</Link></Button>
 
                                                 {/* <button className='btn btngrad btn-danger btn-sm m-3' onClick={(e)=>deleteHandler(sgsSelector._id)}>Remove</button> */}
                                             </td>
@@ -156,4 +156,4 @@ const SgsList = () => {
 }
 
 
-export default SgsList;
+export default ItemList;
