@@ -17,11 +17,12 @@ import DeleteOutlineIcon from '@mui/icons-material/DeleteOutline';
 import GroupsIcon from '@mui/icons-material/Groups';
 import RocketLaunchIcon from '@mui/icons-material/RocketLaunch';
 import AcUnitIcon from '@mui/icons-material/AcUnit';
+import EditIcon from '@mui/icons-material/Edit';
 
 
-const ItemList = () => {
+const TableList = (props) => {
 
-    const [list,setList] = useState([])
+    const {list, setList} = props
     const navigate = useNavigate()
 
     // This is user login/reg
@@ -81,35 +82,16 @@ const ItemList = () => {
 
 
     return(
-            <div className="tests" style={{backgroundImage: `url("https://source.unsplash.com/random/1000x700/?travel")`, height: "1000px"}}>
-                    
-                    {/* If we want to have a user profile image and user background image */}
-                    <div style={{backgroundColor: 'white'}} className='' >
-                        <div className='p-5 justify-contents-center' style={{backgroundImage: `url(${backImg})`, backgroundRepeat: "no-repeat", backgroundSize: "cover", backgroundPosition: "center"}}>
-                        <Link to={'/editProfilePage'}><img className='border border-5 border-light' src={profile} style={{width: 200, height: 200, borderRadius: '50%'}}/></Link>
-                        </div>
-                    </div>
-                    {/* <div className=' d-flex mx-auto justify-content-evenly align-items-center' style={{backgroundColor: 'lightgrey'}}>
-                        <div>
-                            <Link to={'/snowboardGearSelector'} style={{textDecoration: 'none'}}><Button type="button" className = "m-3 col" variant="contained" endIcon={<RocketLaunchIcon/>}>Click to get your custom fit here!</Button></Link>
-                        </div>
-                        <div>
-                            <AcUnitIcon color="primary" />
-                        </div>
-                        <div>
-                            <Link to={'/riderForum'}><Button type="button" className = "m-3 col" variant="contained" endIcon={<GroupsIcon />}>Check out other riders on the forum</Button></Link>
-                        </div>
-                    </div> */}
-
-
-                <div className="col-8 mx-auto mt-3">
+            <div>
+                
+                <div className="col-11 mx-auto mt-3">
                         <div className="rounded-top overflow-hidden" style={{color: 'white', backgroundColor: '#0d6efd'}}>
                             <h1>Bucket List</h1>
                         </div>
                 </div>
-                <div className="col-8 mx-auto text-start">
-                    <div className="" style={{backgroundColor: 'white'}}>
-                        <table className=" table table-striped table-hover  ">
+                <div className="col-11 mx-auto text-start ">
+                    <div className="" style={{backgroundColor: "lightgrey", opacity: ".9"}}>
+                        <table className=" table table-hover  ">
                             <thead className='border-top border-dark'>
                                 <tr className="table-primary">
                                     <th>Name</th>
@@ -126,13 +108,13 @@ const ItemList = () => {
                             list.map((bList, index)=>{
                                 return(
                                     <tr key={index} className=" ">
-                                            <td className="col-1"><Link to= {`/oneItem/${bList._id}`}>{bList.name}</Link></td>
+                                             <td className="col-1"><Link  to= {`/oneItem/${bList._id}`}>{bList.name}</Link></td>
                                             <td className="col-1">{bList.activity}</td>
                                             <td className="col-1">{bList.description}</td>
                                             <td className="col-1">{bList.date}</td>
-                                            <td className="col-1">
-                                                <Button type="button" className = "mt-3 col m-3" variant="contained" endIcon={<DeleteOutlineIcon />} onClick={(e)=>deleteHandler(bList._id)}><Link to={'/homeProfile'}>Remove</Link></Button>
-                                                <button className='btn btn-warning border border-none border-3'><Link to={`/oneitem/${bList._id}/edit`}>edit</Link></button>
+                                            <td className="col-5">
+                                                <Button style={{ textDecoration: "none"}} type="button" color="error" className = "mt-3 col m-3" variant="contained" endIcon={<DeleteOutlineIcon />} onClick={(e)=>deleteHandler(bList._id)}><Link style={{color: "black", textDecoration: "none" }} to={'/homeProfile'}>Remove</Link></Button>
+                                                <button   className='btn btn-warning border border-none border-3'><Link style={{color: "#2d7dd0", textDecoration: "none" }} to={`/oneitem/${bList._id}/edit`}>edit</Link> <EditIcon/></button>
                                             </td>
                                     </tr>
                                     )
@@ -151,4 +133,4 @@ const ItemList = () => {
 }
 
 
-export default ItemList;
+export default TableList;

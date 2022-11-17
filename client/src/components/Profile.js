@@ -19,7 +19,7 @@ import RocketLaunchIcon from '@mui/icons-material/RocketLaunch';
 import AcUnitIcon from '@mui/icons-material/AcUnit';
 
 
-const ItemList = () => {
+const Profile = () => {
 
     const [list,setList] = useState([])
     const navigate = useNavigate()
@@ -81,13 +81,13 @@ const ItemList = () => {
 
 
     return(
-            <div className="tests" style={{backgroundImage: `url("https://source.unsplash.com/random/1000x700/?travel")`, height: "1000px"}}>
+            <div >
                     
                     {/* If we want to have a user profile image and user background image */}
-                    <div style={{backgroundColor: 'white'}} className='' >
-                        <div className='p-5 justify-contents-center' style={{backgroundImage: `url(${backImg})`, backgroundRepeat: "no-repeat", backgroundSize: "cover", backgroundPosition: "center"}}>
+                    <div className='p-5 justify-contents-center' >
+                        {/* <div className='p-5 justify-contents-center' style={{backgroundImage: `url(${backImg})`, backgroundRepeat: "no-repeat", backgroundSize: "cover", backgroundPosition: "center"}}> */}
                         <Link to={'/editProfilePage'}><img className='border border-5 border-light' src={profile} style={{width: 200, height: 200, borderRadius: '50%'}}/></Link>
-                        </div>
+                        {/* </div> */}
                     </div>
                     {/* <div className=' d-flex mx-auto justify-content-evenly align-items-center' style={{backgroundColor: 'lightgrey'}}>
                         <div>
@@ -101,54 +101,10 @@ const ItemList = () => {
                         </div>
                     </div> */}
 
-
-                <div className="col-8 mx-auto mt-3">
-                        <div className="rounded-top overflow-hidden" style={{color: 'white', backgroundColor: '#0d6efd'}}>
-                            <h1>Bucket List</h1>
-                        </div>
-                </div>
-                <div className="col-8 mx-auto text-start">
-                    <div className="" style={{backgroundColor: 'white'}}>
-                        <table className=" table table-striped table-hover  ">
-                            <thead className='border-top border-dark'>
-                                <tr className="table-primary">
-                                    <th>Name</th>
-                                    <th>Activity</th>
-                                    <th>Description</th>
-                                    <th>Date</th>
-                                    <th>Actions</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-
-                            {
-
-                            list.map((bList, index)=>{
-                                return(
-                                    <tr key={index} className=" ">
-                                            <td className="col-1"><Link to= {`/oneItem/${bList._id}`}>{bList.name}</Link></td>
-                                            <td className="col-1">{bList.activity}</td>
-                                            <td className="col-1">{bList.description}</td>
-                                            <td className="col-1">{bList.date}</td>
-                                            <td className="col-1">
-                                                <Button type="button" className = "mt-3 col m-3" variant="contained" endIcon={<DeleteOutlineIcon />} onClick={(e)=>deleteHandler(bList._id)}><Link to={'/homeProfile'}>Remove</Link></Button>
-                                                <button className='btn btn-warning border border-none border-3'><Link to={`/oneitem/${bList._id}/edit`}>edit</Link></button>
-                                            </td>
-                                    </tr>
-                                    )
-                                }
-                                
-                                )
-
-                            }
-                            </tbody>
-                        </table>
-                </div>
-            </div>
         </div>
 
     )
 }
 
 
-export default ItemList;
+export default Profile;

@@ -63,7 +63,7 @@ const submitHandler = (e) =>{
 }
 
   return (
-    <div className='card p-3' >
+    <div className='card col-7 p-3 '  style={{backgroundColor: "lightgrey", opacity: ".9"}} >
         <h1 >Edit Your Profile:</h1>
         <form  onSubmit={submitHandler} className='col mx-auto'>
         <div className='justify-content-between'>
@@ -80,7 +80,7 @@ const submitHandler = (e) =>{
                     noValidate
                     autoComplete="off"
                     >
-                    <TextField size="small" value = {username} id="outlined-basic" label="" variant="outlined" onChange={(e)=> setUserName(e.target.value)}/>
+                    <TextField size="small" style={{backgroundColor: "white", opacity: ".7", borderRadius: "5px"}} value = {username} id="outlined-basic" label="" variant="outlined" onChange={(e)=> setUserName(e.target.value)}/>
                     </Box>
                 </div>
                 
@@ -99,7 +99,7 @@ const submitHandler = (e) =>{
                     noValidate
                     autoComplete="off"
                     >
-                    <TextField size="small" value = {email} id="outlined-basic" label="" variant="outlined" onChange={(e)=> setEmail(e.target.value)}  />
+                    <TextField size="small" style={{backgroundColor: "white", opacity: ".7", borderRadius: "5px"}} value = {email} id="outlined-basic" label="" variant="outlined" onChange={(e)=> setEmail(e.target.value)}  />
                     </Box>
                 </div>
             </div>
@@ -117,14 +117,14 @@ const submitHandler = (e) =>{
                     noValidate
                     autoComplete="off"
                     >
-                    <TextField  size="small" id="outlined-password-input" type="password" label="Password" variant="outlined" onChange={(e)=> setPassword(e.target.value)}/>
+                    <TextField  size="small" style={{backgroundColor: "white", opacity: ".7", borderRadius: "5px"}} id="outlined-password-input" type="password" label="Password" variant="outlined" onChange={(e)=> setPassword(e.target.value)}/>
                     </Box>
                 </div>
             </div>
             { errors.password ? <span className="text-danger">{errors.password.message}</span> :null}<br></br>
             <div>
-                <Button type="submit" className = "mt-3" variant="contained" color="primary" endIcon={<TrendingUpIcon />}>
-                    Change It Up!
+                <Button type="submit" className = "mt-3 mb-3" variant="contained" color="primary" endIcon={<TrendingUpIcon />}>
+                    Change Your Credentials!
                 </Button>
             </div>
         </div>

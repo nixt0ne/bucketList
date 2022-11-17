@@ -55,7 +55,7 @@ const submitHandler = (e) => {
 }
 
   return (
-    <div className='card w-75 mx-auto p-3'>
+    <div className='card w-75 mx-auto p-3' style={{backgroundColor: "lightgrey", opacity: ".9"}}>
         <h1 style={{color: "#1976d2"}}>Sign Up</h1>
         <form  onSubmit={submitHandler} className='col mx-auto mt-1'>
             <div className='justify-content-between'>
@@ -68,7 +68,7 @@ const submitHandler = (e) => {
                             noValidate
                             autoComplete="off"
                             >
-                            <TextField id="outlined-basic" size="small"  label="User Name" variant="outlined" onChange={(e)=> setUsername(e.target.value)}/>
+                            <TextField id="filled-input" style={{backgroundColor: "white", opacity: "", borderRadius: "5px"}} size="small"  label="User Name" variant="filled" onChange={(e)=> setUsername(e.target.value)}/>
                             </Box>
                         </div>
                         { errors.username ? <span className="text-danger">{errors.username.message}</span> :null}<br></br>
@@ -81,7 +81,7 @@ const submitHandler = (e) => {
                             noValidate
                             autoComplete="off"
                             >
-                            <TextField id="outlined-basic" label="Email" size="small"  variant="outlined" onChange={(e)=> setEmail(e.target.value)}  />
+                            <TextField id="filled-password-input" style={{backgroundColor: "white", opacity: "", borderRadius: "5px"}} label="Email" size="small"  variant="filled" onChange={(e)=> setEmail(e.target.value)}  />
                             </Box>
                         </div>
                         { errors.email ? <span className="text-danger">{errors.email.message}</span> :null}<br></br>
@@ -94,7 +94,7 @@ const submitHandler = (e) => {
                             noValidate
                             autoComplete="off"
                             >
-                            <TextField id="outlined-password-input" type="password" label="Password" size="small"  variant="outlined" onChange={(e)=> setPassword(e.target.value)}/>
+                            <TextField id="filled-password-input" style={{backgroundColor: "white", opacity: "", borderRadius: "5px"}} type="password" label="Password" size="small"  variant="filled" onChange={(e)=> setPassword(e.target.value)}/>
                             </Box>
                         </div>
                         { errors.password ? <span className="text-danger">{errors.password.message}</span> :null}<br></br>
@@ -107,7 +107,7 @@ const submitHandler = (e) => {
                             noValidate
                             autoComplete="off"
                             >
-                            <TextField id="outlined-password-input" size="small" type="password" label="Confirm Password" variant="outlined" onChange={(e)=> setConfirmPassword(e.target.value)}/>
+                            <TextField id="filled-password-input" style={{backgroundColor: "white", opacity: "", borderRadius: "5px"}} size="small" type="password" label="Confirm Password" variant="filled" onChange={(e)=> setConfirmPassword(e.target.value)}/>
                             </Box>
                         </div>
                         { errors.confirmPassword ? <span className="text-danger">{errors.confirmPassword.message}</span> :null}<br></br>
