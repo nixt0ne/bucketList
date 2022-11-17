@@ -81,7 +81,7 @@ const ItemList = () => {
 
 
     return(
-            <div className="tests" style={{backgroundImage: `url("https://source.unsplash.com/random/1000x700/?travel")`, height: "1000px"}}>
+            <div className="tests" style={{backgroundImage: `url("https://source.unsplash.com/random/1000x700/?travel")`, backgroundRepeat: "no-repeat", backgroundSize: "cover", backgroundPosition: "center", height: "1000px"}}>
                     
                     {/* If we want to have a user profile image and user background image */}
                     <div style={{backgroundColor: 'white'}} className='' >
