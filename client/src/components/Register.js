@@ -4,7 +4,7 @@ import { Navigate, useNavigate, Link } from 'react-router-dom'
 import NavBar from './NavBar'
 import Button from '@mui/material/Button';
 import SendIcon from '@mui/icons-material/Send';
-import SnowboardingIcon from '@mui/icons-material/Snowboarding';
+import FlareOutlinedIcon from '@mui/icons-material/FlareOutlined';
 import Box from '@mui/material/Box';
 import TextField from '@mui/material/TextField';
 
@@ -56,7 +56,7 @@ const submitHandler = (e) => {
 
   return (
     <div className='card w-75 mx-auto p-3'>
-        <h1 style={{color: "#1976d2"}}>Join The Rider CREW!</h1>
+        <h1 style={{color: "#1976d2"}}>Sign Up</h1>
         <form  onSubmit={submitHandler} className='col mx-auto mt-1'>
             <div className='justify-content-between'>
             <div>
@@ -112,8 +112,8 @@ const submitHandler = (e) => {
                         </div>
                         { errors.confirmPassword ? <span className="text-danger">{errors.confirmPassword.message}</span> :null}<br></br>
             <div>
-                <Button type="submit" className = "mt-3" variant="contained" color="primary" endIcon={<SnowboardingIcon />}>
-                    Become A Rider!
+                <Button type="submit" className = "mt-3" variant="contained" color="primary" endIcon={<FlareOutlinedIcon />}>
+                    Create Account!
                 </Button>
             </div>
             </div>

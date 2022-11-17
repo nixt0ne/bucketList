@@ -5,9 +5,10 @@ import Button from '@mui/material/Button';
 import SendIcon from '@mui/icons-material/Send';
 import DoubleArrowIcon from '@mui/icons-material/DoubleArrow';
 import ElectricBoltIcon from '@mui/icons-material/ElectricBolt';
-import LandscapeIcon from '@mui/icons-material/Landscape';
+
 import Box from '@mui/material/Box';
 import TextField from '@mui/material/TextField';
+import StarOutlineOutlinedIcon from '@mui/icons-material/StarOutlineOutlined';
 
 
 const Login = () => {
@@ -41,7 +42,7 @@ const Login = () => {
     
       return (
         <div className='card w-75 mx-auto p-3'>
-            <h1 style={{color: "#1976d2"}}>Welcome Back, Rider!</h1>
+            <h1 style={{color: "#1976d2"}}>Login</h1>
             <form  onSubmit={submitHandler} className='col  mx-auto mt-1' style= {{height: "20px"}}>
                 <div className='justify-content-between'>
                         {/* <div className='mb-4'>
@@ -89,8 +90,8 @@ const Login = () => {
                         </div>
                     </div>
                     <div> */}
-                    <Button type="submit" className = "mt-3" variant="contained" endIcon={<LandscapeIcon/>}>
-                        Let's Get It!
+                    <Button type="submit" className = "mt-3" variant="contained" endIcon={<StarOutlineOutlinedIcon/>}>
+                        Sign in!
                     </Button>
                 </div>
                 {/* <button className='btn btn-info mt-3 '></button> */}

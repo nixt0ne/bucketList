@@ -81,7 +81,7 @@ const ItemList = () => {
 
 
     return(
-            <div className="tests" style={{backgroundImage: `url("https://thumbs.dreamstime.com/z/s-pattern-seamless-abstract-geometric-fashion-can-be-used-printing-website-background-fabric-design-62143338.jpg")`, height: "1000px"}}>
+            <div className="tests" style={{backgroundImage: `url("https://source.unsplash.com/random/1000x700/?travel")`, height: "1000px"}}>
                     
                     {/* If we want to have a user profile image and user background image */}
                     <div style={{backgroundColor: 'white'}} className='' >
@@ -132,7 +132,7 @@ const ItemList = () => {
                                             <td className="col-1">{bList.date}</td>
                                             <td className="col-1">
                                                 <Button type="button" className = "mt-3 col m-3" variant="outlined" endIcon={<DeleteOutlineIcon />} onClick={(e)=>deleteHandler(bList._id)}><Link to={'/homeProfile'}>Remove</Link></Button>
-                                                <button className='btn btn-danger border border-dark border-3'><Link to={`/oneitem/${bList._id}/edit`}>edit</Link></button>
+                                                <button className='btn btn-warning border border-none border-3'><Link to={`/oneitem/${bList._id}/edit`}>edit</Link></button>
                                             </td>
                                     </tr>
                                     )

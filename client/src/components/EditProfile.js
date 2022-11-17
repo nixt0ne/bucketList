@@ -64,7 +64,7 @@ const submitHandler = (e) =>{
 
   return (
     <div className='card p-3' >
-        <h1 >Edit Your Rider Profile:</h1>
+        <h1 >Edit Your Profile:</h1>
         <form  onSubmit={submitHandler} className='col mx-auto'>
         <div className='justify-content-between'>
             <div className="d-flex justify-content-between align-items-center ">
