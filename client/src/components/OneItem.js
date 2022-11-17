@@ -9,8 +9,8 @@ import Boot from '../Images/Boot.png'
 import Height from '../Images/Height.png'
 // import NavBar from './NavBar'
 import Button from '@mui/material/Button';
-import RocketLaunchIcon from '@mui/icons-material/RocketLaunch';
-
+import AutoFixHighRoundedIcon from '@mui/icons-material/AutoFixHighRounded'
+import DeleteForeverRoundedIcon from '@mui/icons-material/DeleteForeverRounded';
 const OneItem = () => {
     const {id} = useParams()
     const navigate = useNavigate()
@@ -64,7 +64,7 @@ const deleteHandler = (id) => {
 
 
     return (
-        <div style={{backgroundImage: `url("https://thumbs.dreamstime.com/z/trendy-memphis-style-seamless-pattern-inspired-s-s-retro-fashion-design-colorful-festive-hipster-background-abstract-doodle-85336089.jpg")`,backgroundRepeat: "no-repeat", backgroundSize: "cover", backgroundPosition: "center", height:"635px"}}>
+        <div style={{backgroundImage: `url("https://source.unsplash.com/random/1000x700/?travel")`,backgroundRepeat: "no-repeat", backgroundSize: "cover", backgroundPosition: "center", height:"635px"}}>
 
 
             <div className="col-8 mx-auto text-start"  >
@@ -74,14 +74,14 @@ const deleteHandler = (id) => {
                     <div className="mt-3 rounded-top overflow-hidden" style={{backgroundColor: 'black', }} >
                         <div className="d-flex row mt-3" >
                             <div className='col-7'>
-                                <h1 style={{color: 'white'}}>User, check out your CUSTOM RESULTS!</h1>
+                                <h1 style={{color: 'white'}}>Confirm List Changes</h1>
                             </div>
                             <div className='col-5 text-end d-flex'>
                                 <div className=''>
-                                    <Link to={`/oneItem/${item._id}/edit`} style={{textDecoration: 'none'}}><Button type="button" className = "m-3 col" variant="contained" endIcon={<RocketLaunchIcon/>}>Edit Selection</Button></Link>
+                                    <Link to={`/oneItem/${item._id}/edit`} style={{textDecoration: 'none'}}><Button type="button" className = "m-3 col" variant="contained" endIcon={<AutoFixHighRoundedIcon/>}>Edit Selection</Button></Link>
                                 </div>
                                 <div>
-                                    <Button onClick={(e)=>deleteHandler(item._id)} color="error" type="button" className = "m-3 col" variant="contained" endIcon={<RocketLaunchIcon/>}>Delete</Button>
+                                    <Button onClick={(e)=>deleteHandler(item._id)} color="error" type="button" className = "m-3 col" variant="contained" endIcon={<DeleteForeverRoundedIcon/>}>Delete</Button>
                                 </div>
                             </div>
                         </div>
@@ -89,10 +89,10 @@ const deleteHandler = (id) => {
                                         <div className='col card m-1 p-3 d-flex ' style= {{height: "230px", width:"450px"}} >
                                             <div className='row '>
                                                 <div className='col mx-auto '>
-                                                    <img className='' src={Board} style= {{height: "200px", width:"80px"}}/>
+                                                    <img className='' src={Board} style= {{height: "200px", width:"200px"}}/>
                                                 </div>
                                                 <div className='col mx-auto'>
-                                                    <h1 className="mb-4" style= {{fontWeight: "bold"}}>Snowboard Style:</h1>
+                                                    <h1 className="mb-4" style= {{fontWeight: "bold"}}>Name:</h1>
                                                     <h4 className="mb-4"> {item.name} </h4>
                                                 </div>
                                             </div>
@@ -100,11 +100,11 @@ const deleteHandler = (id) => {
                                         <div className='col card m-1 p-3 d-flex ' style= {{height: "230px", width:"450px"}} >
                                             <div className='row ' >
                                                 <div className='col mx-auto '>
-                                                    <img className='' src={Height} style= {{height: "200px", width:"80px"}}/>
+                                                    <img className='' src={Height} style= {{height: "200px", width:"200px"}}/>
                                                 </div>
                                                 <div className='col mx-auto'>
-                                                    <h1 className="mb-4" style= {{fontWeight: "bold"}}>Snowboard Height:</h1>
-                                                    <h4 className="mb-4"> {item.activity} ft</h4>
+                                                    <h1 className="mb-4" style= {{fontWeight: "bold"}}>Activity:</h1>
+                                                    <h4 className="mb-4"> {item.activity}</h4>
                                                 </div>
                                             </div>
                                         </div>
@@ -118,10 +118,10 @@ const deleteHandler = (id) => {
                                     <div className='col card m-1 p-3 d-flex ' style= {{height: "230px", width:"450px"}} >
                                             <div className='row '>
                                                 <div className='col mx-auto '>
-                                                    <img className='' src={Boot} style= {{height: "150px", width:"150px"}}/>
+                                                    <img className='' src={Boot} style= {{height: "200px", width:"200px"}}/>
                                                 </div>
                                                 <div className='col mx-auto'>
-                                                    <h1 className="mb-4" style= {{fontWeight: "bold"}}>Boot Style:</h1>
+                                                    <h1 className="mb-4" style= {{fontWeight: "bold"}}>Description:</h1>
                                                     <h4 className="mb-4"> {item.description} </h4>
                                                 </div>
                                             </div>
@@ -134,10 +134,10 @@ const deleteHandler = (id) => {
                                                 <div className='col card m-1 p-3 d-flex ' style= {{height: "230px", width:"450px"}} >
                                             <div className='row '>
                                                 <div className='col mx-auto '>
-                                                    <img className='' src={Binding} style= {{height: "150px", width:"150px"}}/>
+                                                    <img className='' src={Binding} style= {{height: "200px", width:"200px"}}/>
                                                 </div>
                                                 <div className='col mx-auto'>
-                                                    <h1 className="mb-4" style= {{fontWeight: "bold"}}>Binding Style:</h1>
+                                                    <h1 className="mb-4" style= {{fontWeight: "bold"}}>Date:</h1>
                                                     <h4 className="mb-4"> {item.date} </h4>
                                                 </div>
                                             </div>

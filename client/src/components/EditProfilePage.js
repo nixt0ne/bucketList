@@ -8,7 +8,7 @@ import EditImg from './EditImg'
 import NavBar from './NavBar';
 import { useParams, useNavigate, Link } from 'react-router-dom'
 import Button from '@mui/material/Button';
-import RocketLaunchIcon from '@mui/icons-material/RocketLaunch';
+import DeleteForeverRoundedIcon from '@mui/icons-material/DeleteForeverRounded';
 
 const EditProfilePage = () => {
     
@@ -48,12 +48,12 @@ const EditProfilePage = () => {
     },[])
 
     return (
-        <div style={{backgroundImage: `url("https://thumbs.dreamstime.com/z/trendy-geometric-elements-memphis-cards-retro-style-texture-pattern-geometric-elements-modern-abstract-design-poster-cover-86328882.jpg")`,backgroundRepeat: "no-repeat", backgroundSize: "cover", backgroundPosition: "center", height:"635px"}}>
+        <div style={{backgroundImage: `url("https://source.unsplash.com/random/1000x700/?travel")`,backgroundRepeat: "no-repeat", backgroundSize: "cover", backgroundPosition: "center", height:"635px"}}>
         {/* <NavBar/> */}
         <div className='d-flex mx-auto justify-content-around' >
             <div className=''>
             <div className='d-flex justify-content-end mt-3'>
-                <Link to={'/snowboardGearSelector'} style={{textDecoration: 'none'}}><Button onClick={(e)=>deleteHandler(id)} type="button" className = "m-3 col" color="error" variant="contained" endIcon={<RocketLaunchIcon/>}>Delete Profile</Button></Link>
+                <Link to={'/snowboardGearSelector'} style={{textDecoration: 'none'}}><Button onClick={(e)=>deleteHandler(id)} type="button" className = "m-3 col" color="error" variant="contained" endIcon={<DeleteForeverRoundedIcon/>}>Delete Profile</Button></Link>
                 {/* <button className='btn btn-danger border border-dark border-3' >Delete Profile</button> */}
             </div>
                 <div className="d-flex">

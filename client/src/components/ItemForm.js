@@ -11,9 +11,10 @@ import FormControl from '@mui/material/FormControl';
 import Select from '@mui/material/Select';
 import AutoAwesomeIcon from '@mui/icons-material/AutoAwesome';
 import Button from '@mui/material/Button';
-import RocketLaunchIcon from '@mui/icons-material/RocketLaunch';
+import AddCircleOutlineRoundedIcon from '@mui/icons-material/AddCircleOutlineRounded';
 import TextField from '@mui/material/TextField';
 import AccessibilityIcon from '@mui/icons-material/Accessibility';
+import logo from '../Images/logo.png'
 
 const ItemForm = () => {
     const [name, setName] = useState('')
@@ -21,6 +22,7 @@ const ItemForm = () => {
     const [date, setDate] = useState('')
     const [description, setDescription] = useState('')
     const [errors, setErrors] = useState({})
+    
     
     const navigate = useNavigate()
 
@@ -47,19 +49,19 @@ const ItemForm = () => {
 
     return (
         <div className="mx-auto" >
-        <div className='p-4' style={{backgroundImage: `url("https://thumbs.dreamstime.com/z/seamless-pattern-memphis-style-vector-illustration-design-website-background-banner-retro-abstract-geometric-element-63225817.jpg")`,backgroundRepeat: "no-repeat", backgroundSize: "cover", backgroundPosition: "center", height: "635px"}}>
+        <div className='p-4' style={{backgroundImage: `url("https://source.unsplash.com/random/1000x700/?adventure")`,backgroundRepeat: "no-repeat", backgroundSize: "cover", backgroundPosition: "center", height: "635px"}}>
             <div className='' >
-                <img style={{width: 300, height: 300, borderRadius: '70%'}} className='justify-content-center ' src="https://as1.ftcdn.net/v2/jpg/01/29/71/80/1000_F_129718004_GFEyZoopoBQ7emapFD2o5QwF6UIdGx7N.jpg"/>
+                <img style={{width: 500, height: 500, borderRadius: '70%'}} className='justify-content-center ' src={logo}/>
                 {/* <img src = {list.name} className="col-8 border border-5 border-warning"/><br></br> */}
             </div>
     
             <form className="card mt-3 col-5 mx-auto p-2" onSubmit={submitHandler}>
             <div className="d-flex mx-auto mt-2" >
                     <AutoAwesomeIcon/>
-                        <h1 style={{color: "black"}} > Get Your Best Gear Fit! </h1>
+                        <h1 style={{color: "black"}} > Create Your List! </h1>
                     <AutoAwesomeIcon/>
                 </div>
-                <h4 style={{color: "black", fontSize: "15px"}} > Choose your selections below to get your custom results: </h4>
+                <h4 style={{color: "black", fontSize: "15px"}} > Make Your Dreams Come True! </h4>
                 <div className="w-50 mx-auto" style={{height:"50px"}}>
                     
                <Box
@@ -118,7 +120,7 @@ const ItemForm = () => {
             { errors.date ? <span className="text-danger">{errors.date.message}</span> :null}<br></br>
         </div>
     
-        <Button type="submit" className = "mx-auto" variant="outlined" endIcon={<RocketLaunchIcon/>}>Get Your Custom Fit!</Button>
+        <Button type="submit" className = "mx-auto" variant="outlined" endIcon={<AddCircleOutlineRoundedIcon/>}>Create List Item!</Button>
                 </form>
             </div>
         </div>
