@@ -80,11 +80,11 @@ return (
                 <AutoAwesomeIcon/>
             </div>
             <h4 style={{color: "black", fontSize: "15px"}} > Edit Items Below</h4>
-            <div className="w-50 mx-auto" style={{height:"50px"}}>
+            <div className="w-50 mx-auto mb-4" style={{height:"50px"}}>
                 
            <Box
                 sx={{
-                    '& > :not(style)': { mb: 0, width: '30ch', },
+                    '& > :not(style)': { mb: 1, width: '30ch', },
                 }}
                 noValidate
                 autoComplete="off"
@@ -99,26 +99,26 @@ return (
             { errors.name ? <span className="text-danger">{errors.name.message}</span> :null}<br></br>
     </div>
 
-    <div className="w-50 mx-auto" style={{height:"50px"}}>
+    <div className="w-50 mx-auto mb-4" style={{height:"50px"}}>
 
 <Box
                 sx={{
-                    '& > :not(style)': { mb: 0, width: '30ch', },
+                    '& > :not(style)': { mb: 3, width: '30ch', },
                 }}
                 noValidate
                 autoComplete="off"
                 >
-                < TextField id="outlined-basic" value= {activity} size="small" label="activity" variant="outlined" onChange={(e)=> setActivity(e.target.value)}/>
+                < TextField id="outlined-basic" value= {activity} size="small" label="Activity" variant="outlined" onChange={(e)=> setActivity(e.target.value)}/>
             </Box>
 
         { errors.activity ? <span className="text-danger">{errors.activity.message}</span> :null}<br></br>
     </div>
 
-    <div className="w-50 mx-auto" style={{height:"50px"}}>
+    <div className="w-50 mx-auto mb-4" style={{height:"50px"}}>
        
             <Box
                 sx={{
-                    '& > :not(style)': { mb: 0, width: '30ch', },
+                    '& > :not(style)': { mb: 3, width: '30ch', },
                 }}
                 noValidate
                 autoComplete="off"
@@ -129,16 +129,17 @@ return (
         { errors.description ? <span className="text-danger">{errors.description.message}</span> :null}<br></br>
     </div>
 
-    <div className="w-50 mx-auto" style={{height:"50px"}}>
+    <div className="w-50 mx-auto mb-4" style={{height:"50px"}}>
         
             <Box
                 sx={{
-                    '& > :not(style)': { mb: 0, width: '30ch', },
+                    '& > :not(style)': { mb: 5, width: '30ch', },
                 }}
                 noValidate
                 autoComplete="off"
                 >
-                < TextField id="outlined-basic" value= {date}  size="small" label="Date" variant="outlined" onChange={(e)=> setDate(e.target.value)}/>
+                    <input type="date" id="outlined-basic" name=""    value={date}  label="Date" size="small"variant="outlined" onChange={(e)=> setDate(e.target.value)}></input>
+                {/* < TextField id="outlined-basic" value= {date}  size="small" label="Date" variant="outlined" onChange={(e)=> setDate(e.target.value)}/> */}
             </Box>
         { errors.date ? <span className="text-danger">{errors.date.message}</span> :null}<br></br>
     </div>

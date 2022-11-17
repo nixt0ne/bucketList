@@ -15,14 +15,18 @@ import AddCircleOutlineRoundedIcon from '@mui/icons-material/AddCircleOutlineRou
 import TextField from '@mui/material/TextField';
 import AccessibilityIcon from '@mui/icons-material/Accessibility';
 import logo from '../Images/logo.png'
+import { Input } from "@mui/material";
+// import Moment from "moment";
+
 
 const ItemForm = () => {
     const [name, setName] = useState('')
     const [activity, setActivity] = useState('')
+    // const [date, setDate] = useMoment('').format('DD-MM-YYYY')
     const [date, setDate] = useState('')
     const [description, setDescription] = useState('')
     const [errors, setErrors] = useState({})
-    
+ 
     
     const navigate = useNavigate()
 
@@ -86,7 +90,7 @@ const ItemForm = () => {
                     noValidate
                     autoComplete="off"
                     >
-                    < TextField id="outlined-basic" size="small" label="activity" variant="outlined" onChange={(e)=> setActivity(e.target.value)}/>
+                    < TextField id="outlined-basic" size="small" label="Activity" variant="outlined" onChange={(e)=> setActivity(e.target.value)}/>
                 </Box>
     
             { errors.activity ? <span className="text-danger">{errors.activity.message}</span> :null}<br></br>
@@ -115,9 +119,11 @@ const ItemForm = () => {
                     noValidate
                     autoComplete="off"
                     >
-                    < TextField id="outlined-basic" size="small" label="Date" variant="outlined" onChange={(e)=> setDate(e.target.value)}/>
+                        <input type="Date" id="outlined-basic" name="" label="Date" size="small"variant="outlined"onChange={(e)=> setDate(e.target.value)}></input>
+
+                    {/* < Input id="start" input type = "date" size="small" label="Date" variant="outlined"  value="2018-07-22"onChange={(e)=> setDate(e.target.value)}/> */}
                 </Box>
-            { errors.date ? <span className="text-danger">{errors.date.message}</span> :null}<br></br>
+            { errors.date ? <span className="trip-start">{errors.date.message}</span> :null}<br></br>
         </div>
     
         <Button type="submit" className = "mx-auto" variant="outlined" endIcon={<AddCircleOutlineRoundedIcon/>}>Create List Item!</Button>

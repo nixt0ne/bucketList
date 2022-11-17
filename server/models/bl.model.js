@@ -15,9 +15,9 @@ const bucketlistSchema = new mongoose.Schema({
     },
     
     date:{
-        type:String,
+        type:Date,
         required: [true, "Date to be completed by is required!"],
-        minLength:[3, "Name must be at least 3 characters"],
+        minLength:[3, ""],
     },
 
     description:{
