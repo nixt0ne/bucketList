@@ -41,10 +41,10 @@ const Login = () => {
     console.log(errors.email)
     
       return (
-        <div className='card w-75 mx-auto p-3'>
+        <div className='card w-75 mx-auto p-3' style={{backgroundColor: "lightgrey", opacity: ".9"}}>
             <h1 style={{color: "#1976d2"}}>Login</h1>
-            <form  onSubmit={submitHandler} className='col  mx-auto mt-1' style= {{height: "20px"}}>
-                <div className='justify-content-between'>
+            <form  onSubmit={submitHandler} className='col  mx-auto mt-1' style= {{height: "20px"}} >
+                <div className='justify-content-between' >
                         {/* <div className='mb-4'>
                             <label className=''>Email:</label>
                         </div> */}
@@ -52,14 +52,14 @@ const Login = () => {
                         <div className='mb-4'>
                             <Box
                             
-                            
+                            // background: "grey"
                             sx={{
                                 '& > :not(style)': { mb: 0, width: '30ch', },
                             }}
                             noValidate
                             autoComplete="off"
                             >
-                            < TextField id="outlined-basic" size="small" label="Email" variant="outlined" onChange={(e)=> setEmail(e.target.value)}/>
+                            < TextField id="filled-basic-success" style={{backgroundColor: "white", opacity: "", borderRadius: "5px"}}  label="Email" variant="filled" size="small" onChange={(e)=> setEmail(e.target.value)}/>
                             </Box>
                         </div>
                         <div>
@@ -72,7 +72,7 @@ const Login = () => {
                             noValidate
                             autoComplete="off"
                             >
-                            <TextField id="outlined-password-input" type="password" size="small"  label="Password" variant="outlined" onChange={(e)=> setPassword(e.target.value)}/>
+                            <TextField id="filled-password-input"  style={{backgroundColor: "white", opacity: "", borderRadius: "5px"}}  type="password" size="small"  label="Password" variant="filled" onChange={(e)=> setPassword(e.target.value)}/>
                             </Box>
                         </div>
                         { errors ? <span className="text-danger">{errors}</span> :null}<br></br>

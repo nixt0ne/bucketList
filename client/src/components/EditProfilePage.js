@@ -48,25 +48,22 @@ const EditProfilePage = () => {
     },[])
 
     return (
-        <div style={{backgroundImage: `url("https://source.unsplash.com/random/1000x700/?travel")`,backgroundRepeat: "no-repeat", backgroundSize: "cover", backgroundPosition: "center", height:"635px"}}>
-        {/* <NavBar/> */}
-        <div className='d-flex mx-auto justify-content-around' >
-            <div className=''>
-            <div className='d-flex justify-content-end mt-3'>
-                <Link to={'/snowboardGearSelector'} style={{textDecoration: 'none'}}><Button onClick={(e)=>deleteHandler(id)} type="button" className = "m-3 col" color="error" variant="contained" endIcon={<DeleteForeverRoundedIcon/>}>Delete Profile</Button></Link>
-                {/* <button className='btn btn-danger border border-dark border-3' >Delete Profile</button> */}
+        <div style={{backgroundImage: `url("https://source.unsplash.com/random/1000x700/?travel")`,backgroundRepeat: "no-repeat", backgroundSize: "cover", backgroundPosition: "center",  height: "97.5vh", width:"99.2vw"}}>
+            <div className='d-flex justify-content-end' >
+                    <Link className='  ' to={'/'} style={{textDecoration: 'none'}}><Button onClick={(e)=>deleteHandler(id)} type="button" className = "m-3 col" color="error" variant="contained" endIcon={<DeleteForeverRoundedIcon/>}>Delete Profile</Button></Link>
+                    {/* <button className='btn btn-danger border border-dark border-3' >Delete Profile</button> */}
             </div>
-                <div className="d-flex">
-                <div className='m-3'>
-                    <EditProfile/>
-                </div>
-                <hr></hr>
-                <div className='m-3'>
+            <div className=" d-flex">
+                {/* <div className='col-6 d-flex justify-content-around'> */}
+                    <div className='col-6 d-flex justify-content-center'>
+                        <EditProfile/>
+                    </div>
+                {/* </div>
+                <hr></hr> */}
+                <div className='col-6 d-flex justify-content-center'>
                     <EditImg/>
                 </div>
-                </div>
-           </div>
-        </div>
+            </div>
         </div>
     )
 }

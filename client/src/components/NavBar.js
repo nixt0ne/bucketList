@@ -17,8 +17,9 @@ import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
 import AdbIcon from '@mui/icons-material/Adb';
 import LandscapeIcon from '@mui/icons-material/Landscape';
+import logo1 from '../Images/logo1.png'
 
-const pages = ['Add Item', 'Bucketlist Forum'];
+const pages = [];
 const urls = {'Add Item':'/itemForm', 'Bucketlist Forum':'/bucketlistForum', 'Account':'/editProfilePage','Logout':'/Logout' }
 const urlsSettings = {'Account':'/editProfilePage','Logout':'Logout' }
 const settings = ['Account','Logout'];
@@ -97,20 +98,21 @@ useEffect(()=>{
 
     return (
         <div className="d-flex bd-highlight mx-auto ">
-    <AppBar position="static">
+    <AppBar position="static" style={{backgroundColor: "orange", opacity: ".8"}}>
       <Container maxWidth="xl">
         <Toolbar disableGutters>
-          <LandscapeIcon sx={{ display: { xs: 'none', md: 'flex' }, mr: 1 }} />
+        <img style={{width: 75, height: 75, borderRadius: '70%'}} className='justify-content-center p-1' src={logo1}/>
           <Typography
-            variant="h6"
+            variant="h5"
             noWrap
             component="a"
             href="/homeProfile"
+            className='m-2'
             sx={{
               mr: 2,
               display: { xs: 'none', md: 'flex' },
-              fontFamily: 'monospace',
-              fontWeight: 700,
+              fontFamily: '',
+              fontWeight: 500,
               letterSpacing: '.3rem',
               color: 'inherit',
               textDecoration: 'none',
@@ -189,7 +191,7 @@ useEffect(()=>{
           <Box sx={{ flexGrow: 0 }}>
             <Tooltip title="Open settings">
               <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
-                <Avatar alt="" src={profile} />
+                <Avatar alt="" src={profile} style={{height:"50px", width:"50px"}}/>
               </IconButton>
             </Tooltip>
             <Menu
